@@ -23,7 +23,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          submodules: 'false'
+          # This explicitly passes the token the action is running with
+          token: ${{ secrets.GITHUB_TOKEN }} 
+          
+          # This disables shallow clone and fetches the entire history.
+          # 0 means "all history".
+          fetch-depth: 0
+          
+          # We'll keep this just to be safe
+          submodules: false
       
       - name: Set up Node.js
         uses: actions/setup-node@v4
