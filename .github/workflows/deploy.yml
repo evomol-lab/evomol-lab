@@ -32,6 +32,7 @@ jobs:
           
           # We'll keep this just to be safe
           submodules: false
+          lfs: true
       
       - name: Set up Node.js
         uses: actions/setup-node@v4
